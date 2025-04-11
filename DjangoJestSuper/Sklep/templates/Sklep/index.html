@@ -1,0 +1,72 @@
+{% extends 'Sklep/szablon.html' %}
+
+{% block wszystko %}
+    <h1 class="text-center text-fadeIn mt-5">Witaj w naszym sklepie z mikroelektroniką!</h1>
+
+    <!-- Reklama sklepu -->
+    <div class="jumbotron mt-5 text-center">
+        <h2 class="display-4 animated-fade-in">Odkryj nowy świat technologii!</h2>
+        <p class="lead">Z nami poznasz najnowsze trendy w świecie elektroniki. Oferujemy szeroki wybór produktów, od podstawowych elementów po zaawansowane urządzenia. Wszystko, czego potrzebujesz, w jednym miejscu!</p>
+        <hr class="my-4">
+        <p>Dla naszych klientów przygotowaliśmy specjalne promocje i rabaty. Sprawdź naszą ofertę i przekonaj się, że warto z nami współpracować! Zobacz także nasze forum i social meedia!!!</p>
+        <a class="btn btn-primary btn-lg animated-color-change" href="https://3kinvention.pl/" role="button">Forum 3K Invention</a>
+    </div>
+
+    <!-- Ikonki mediów społecznościowych -->
+    <div class="text-center mt-5 mb-5">
+        <a href="https://www.facebook.com/TwójProfil" target="_blank" class="social-icon mx-3">
+            <i class="fab fa-facebook-f fa-4x"></i>
+        </a>
+        <a href="https://www.instagram.com/TwójProfil" target="_blank" class="social-icon mx-3">
+            <i class="fab fa-instagram fa-4x"></i>
+        </a>
+        <a href="https://www.tiktok.com/@TwójProfil" target="_blank" class="social-icon mx-3">
+            <i class="fab fa-tiktok fa-4x"></i>
+        </a>
+    </div>
+
+    <style>
+        .social-icon {
+            text-decoration: none; /* Usunięcie podkreślenia */
+            color: inherit; /* Ustawi kolor ikony na domyślny dla linku */
+        }
+
+        .social-icon:hover {
+            color: inherit; /* Utrzymanie koloru ikony przy najechaniu */
+        }
+         @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Stosujemy animację do klasy animated-fade-in */
+        .animated-fade-in {
+            animation-name: fadeIn;
+            animation-duration: 2s; /* Czas trwania animacji */
+            animation-timing-function: ease-in-out; /* Szybkość przejścia animacji */
+
+        }
+        @keyframes colorChange {
+            0% {
+                background-color: #007bff;  /* Domyślny kolor przycisku .btn-primary w Bootstrap */
+            }
+            50% {
+                background-color: red;
+            }
+            100% {
+                background-color: #007bff;
+            }
+        }
+
+        .animated-color-change {
+            animation-name: colorChange;
+            animation-duration: 2s; /* Cały cykl trwa 2 sekundy: 1s na kolor czerwony i 1s powrót do niebieskiego */
+            animation-iteration-count: infinite; /* Animacja będzie się powtarzać w nieskończoność */
+        }
+    </style>
+
+{% endblock wszystko %}

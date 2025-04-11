@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sklep</title>
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+
+<body>
+
+    <!-- Pasek nawigacji -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Strona Główna</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/produkty">Pokaż mi swoje towary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/koszyk">Koszyk</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <span class="navbar-text">Witaj, {{user.username}}.</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'baza:logout' %}">Wyloguj</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'baza:register' %}">Rejestracja</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'baza:login' %}">Zaloguj</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Kontener główny -->
+    <div class="container mt-5">
+        {% block wszystko %}{% endblock wszystko %}
+    </div>
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Sklep</title>
+</head>
+<body>
+  <h1>Witaj w naszym sklepie</h1><br>
+    <p>
+     <a href="/">Strona Główna</a> &nbsp;&nbsp;&nbsp;  <a href="/produkty">Pokaż mi swoje towary</a>
+        &nbsp;&nbsp;&nbsp; <a href="/koszyk">Koszyk</a> &nbsp;&nbsp;&nbsp;
+        {% if user.is_authenticated %}
+         Witaj, {{user.username}}.
+         <a href="{% url 'baza:logout' %}">Wyloguj</a>
+        {% else %}
+         <a href="{% url 'baza:register' %}">Rejestracja</a>&nbsp;&nbsp;&nbsp;
+         <a href="{% url 'baza:login' %}">Zaloguj</a>
+        {% endif %}
+
+    </p>
+
+  {% block wszystko %}{% endblock wszystko %}
+</body>
+</html>

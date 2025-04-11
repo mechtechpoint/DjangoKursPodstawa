@@ -1,0 +1,16 @@
+{% extends 'Sklep/szablon.html' %}
+
+{% block wszystko %}
+{% load static %}
+<div><img src="{% static 'Sklep/zdj'|add:p_id|add:'.png' %}" width="130" height="130"  /></div>
+<p>nazwa: {{produkt.nazwa}}</p>
+<p>opis: {{produkt.opis}}</p>
+<p>cena: {{produkt.cena}} Złotych</p>
+
+    <form action="{% url 'dodajkoszyk' produkt.id %}" method='post'>
+        {% csrf_token %}
+        {{ form }}
+        <button name="submit">dodaj do koszyka</button>
+    </form>
+
+{% endblock wszystko %}

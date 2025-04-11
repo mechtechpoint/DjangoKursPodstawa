@@ -1,0 +1,12 @@
+{% extends 'Sklep/szablon.html' %}
+
+{% block wszystko %}
+
+<p>Dostępne od ręki:</p>
+{% for produkt in produkty %}
+    <li>
+        <a href ="/produkt/{{produkt.id}}">{{ produkt.nazwa }}</a>
+    </li>
+{% endfor %}
+
+{% endblock wszystko %}

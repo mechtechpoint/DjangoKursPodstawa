@@ -1,0 +1,18 @@
+{% extends 'Sklep/szablon.html' %}
+
+{% block wszystko %}
+<p> Twój koszyk: </p>
+{% if produkty_koszyk %}
+  {% for produkt in produkty_koszyk %}
+      <p>nazwa: {{produkt.nazwa_user}}, ilość zakupionych sztuk: {{produkt.dodane_user}} &nbsp;
+          <a href="/kosz/1/{{produkt.id}}">+</a>&nbsp;
+          <a href="/kosz/0/{{produkt.id}}">-</a>
+      </p>
+  {% endfor %}
+{% else %}
+  <p> Twój koszyk jest pusty jak słoik po ogórkach </p>
+{% endif %}
+<br>
+<p> Całkowita kwota do zapłaty: {{cena}} Złotych </p>
+<a href="/wyslij">Złóż zamówienie</a>
+{% endblock wszystko %}

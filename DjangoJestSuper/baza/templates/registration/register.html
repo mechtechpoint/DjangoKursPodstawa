@@ -1,0 +1,10 @@
+{% extends 'Sklep/szablon.html' %}
+
+{% block wszystko %}
+  <form method="post" action="{% url 'baza:register' %}">
+    {% csrf_token %}
+    {{form.as_p}}
+  <button name="submit" >Rejestracja</button>
+  <input type="hidden" name="next" value='/' />
+  </form>
+{% endblock wszystko %}
